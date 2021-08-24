@@ -37,7 +37,6 @@ int main()
         }
         else if(discriminant > 0)
         {
-
             root1 = ((-1)*b_coefficient + sqrt(discriminant))/(2*a_coefficient);
             root2 = ((-1)*b_coefficient - sqrt(discriminant))/(2*a_coefficient);
             printf("Roots of this equation are:");
