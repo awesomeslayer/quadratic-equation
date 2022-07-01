@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "quadratic-equation_functions_header.h"
-#include "quadratic-equation_tests_header.h"
+#include "qe_functions.h"
+#include "qe_tests.h"
 
 void SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot1, double TrueRoot2, int nTest, int* NumFail)
 {
@@ -34,7 +34,6 @@ int TestSolve()
     SoloTestRoot(1, 2, 1, 1, -1, -1, 5, &NumFail);
 
     return NumFail;
-
     //из файла
 }
 

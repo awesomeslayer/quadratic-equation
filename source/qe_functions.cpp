@@ -1,8 +1,8 @@
-#include <stdio.h>
+//#include <stdio.h>
 #include <math.h>
 #include <assert.h>
 
-#include "quadratic-equation_functions_header.h"
+#include "qe_functions.h"
 
 double minimum(double a, double b, double c)
 {
@@ -14,8 +14,8 @@ double minimum(double a, double b, double c)
     {
         if(b > c)   return c;
         else        return b;
-
     }
+
     else
     {
         if(a > c)   return c;
@@ -62,7 +62,6 @@ int SolveLine(double b, double c, double *x1, double *x2)
     assert(x1 != NULL);
     assert(x2 != NULL);
     assert(x1 != x2);
-
 
     if (equal(b, 0) && equal(c, 0))
     {

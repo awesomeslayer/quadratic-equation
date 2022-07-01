@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <cmath>
 
-#include "quadratic-equation_functions_header.h"
-#include "quadratic-equation_tests_header.h"
+#include "qe_functions.h"
+#include "qe_tests.h"
 
 int main()
 {
