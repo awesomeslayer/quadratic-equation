@@ -27,15 +27,15 @@ int SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot
 
 int TestSolve()
 {
-    FILE * in_file = fopen("tests", "r");
+    FILE * in_file = fopen("./tests/tests.txt", "r");
 
-    if(in_file == NULL)
+    if(in_file == nullptr)
     {
         printf("Cannot open file.\n");
         return -1;
     }
     
-    int NumFail = 0;
+    int NumFail = 0; 
     
     double a = 0;
     double b = 0;
@@ -45,7 +45,8 @@ int TestSolve()
     double TrueRoot2 = 0; 
     int nTest = 0;
 
-    while(fscanf(in_file, "%lf, %lf, %lf, %d, %lf, %lf, %d", &a, &b, &c, &TrueNumRoots, &TrueRoot1, &TrueRoot2, &nTest) == 7)
+    while(fscanf(in_file, "%lf, %lf, %lf, %d, %lf, %lf, %d",
+                            &a, &b, &c, &TrueNumRoots, &TrueRoot1, &TrueRoot2, &nTest) == 7)
         NumFail = NumFail + SoloTestRoot(a, b, c, TrueNumRoots, TrueRoot1, TrueRoot2, nTest);
 
     fclose(in_file);
@@ -60,5 +61,6 @@ void TestAll() {
         assert(NumFailedTests == 0);
     } else {
         printf("All Tests are OK\n\n");
+        //add examples
     }
 }

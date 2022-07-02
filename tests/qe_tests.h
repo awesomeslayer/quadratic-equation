@@ -18,7 +18,6 @@
 //!
 //! @note In case of failed test prints coefficients and roots (true and counted) for this situation
 ///
-
 int SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot1, double TrueRoot2, int nTest);
 
 ///
@@ -26,7 +25,6 @@ int SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot
 //!
 //! @return Number of failed tests
 ///
-
 int TestSolve();
 
 ///
@@ -34,6 +32,5 @@ int TestSolve();
 //!
 //! @return nothing
 ///
-
 void TestAll();
 
