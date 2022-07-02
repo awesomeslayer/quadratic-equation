@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 ///
-//! @brief the program once, comparing the results with those already available
+//! @brief the program once, comparing the results with those already available in file tests.txt
 //!
 //! @param [in] a value of a-coefficient
 //! @param [in] b value of b-coefficient

@@ -83,10 +83,10 @@ int SolveQuad(double a, double b, double c, double *x1, double *x2)
     assert(x2 != NULL);
     assert(x1 != x2);
 
-    // double min_coefficient = abs_minimum(a, b, c);
-    // a = a/min_coefficient;
-    // b = b/min_coefficient;
-    // c = c/min_coefficient;
+    double min_coefficient = minimum(a, b, c);
+    a = a/min_coefficient;
+    b = b/min_coefficient;
+    c = c/min_coefficient;
 
     double D = b * b - 4 * a * c;
 
@@ -137,8 +137,7 @@ bool PrintRoots(double a, double b, double c, double *root1, double *root2)
         case ZERO_ROOTS:
             printf("This equation has no solution\n");
             return 1;
-           
-           break;
+            break;
 
         case ONE_ROOT:
             printf("This equation has 1 solution: x1 = %lf\n", *root1);

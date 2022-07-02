@@ -2,7 +2,7 @@
 #pragma once
 #include <stdio.h>
 
-const double EPS = 1E-4;
+const double EPS = 1E-10;
 
 enum SolveStatus
 {

@@ -1,6 +1,6 @@
 #include <assert.h>
 
-#include "qe_functions.h"
+#include "../source/qe_functions.h"
 #include "qe_tests.h"
 
 int SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot1, double TrueRoot2, int nTest)
@@ -26,9 +26,9 @@ int SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot
 
 int TestSolve()
 {
-    FILE * fp;
+    FILE * fp = NULL;
 
-    if((fp = fopen("tests", "r")) == NULL)
+    if((fp = fopen("tests.txt", "r")) == NULL)
     {
         printf("Cannot open file.\n");
         return FALSE;

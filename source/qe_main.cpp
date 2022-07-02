@@ -3,19 +3,17 @@
 #include "qe_functions.h"
 
 #define DEBUG_MODE
-
 #ifdef DEBUG_MODE
 
-    #include "qe_tests.h"
-
+    #include "../tests/qe_tests.h"
 
 #endif
 
 int main()
 {
     #ifdef DEBUG_MODE
-    printf("DEBUG_MODE\n");
-    TestAll();
+        printf("DEBUG_MODE\n");
+        TestAll();
     #endif
 
     double a_coeff = NAN;
