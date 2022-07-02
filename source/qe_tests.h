@@ -12,14 +12,14 @@
 //! @param [in] TrueRoot1 value of 1-st true root
 //! @param [in] TrueRoot2 value of 2-nd true root
 //! @param [in] nTest test serial number
-//! @param [out] NumFail pointer to the number of failed tests
+//! 
 //!
-//! @return nothing
+//! @return 1 if test is failed, 0 if test is good
 //!
 //! @note In case of failed test prints coefficients and roots (true and counted) for this situation
 ///
 
-void SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot1, double TrueRoot2, int nTest, int* NumFail);
+int SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot1, double TrueRoot2, int nTest);
 
 ///
 //! @brief the program several times using SoloTestRoot, considering all kinds of situations

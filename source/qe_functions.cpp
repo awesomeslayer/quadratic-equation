@@ -1,4 +1,3 @@
-//#include <stdio.h>
 #include <math.h>
 #include <assert.h>
 
@@ -125,6 +124,40 @@ int Solve(double a, double b, double c, double *x1, double *x2)
     else
     {
         return SolveQuad(a, b, c, x1, x2);
+    }
+}
+
+bool PrintRoots(double a, double b, double c, double *root1, double *root2)
+{
+    int NumSolutions = 0;
+    NumSolutions = Solve(a, b, c, root1, root2);
+
+    switch (NumSolutions) 
+    {
+        case ZERO_ROOTS:
+            printf("This equation has no solution\n");
+            return 1;
+           
+           break;
+
+        case ONE_ROOT:
+            printf("This equation has 1 solution: x1 = %lf\n", *root1);
+            return 1;
+            break;
+
+        case TWO_ROOTS:
+            printf("This equation has 2 solutions: x1 = %lf, x2= %lf\n", *root1, *root2);
+            return 1;
+            break;
+
+        case INF_ROOTS:
+            printf("This equation has an infinite number of solutions\n");
+            return 1;
+            break;
+
+        default:
+            printf("main(): ERROR: number of roots = %d\n", NumSolutions);
+            return 0;
     }
 }
 

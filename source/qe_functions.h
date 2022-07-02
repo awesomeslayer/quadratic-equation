@@ -107,3 +107,20 @@ int SolveQuad(double a, double b, double c, double *x1, double *x2);
 ///
 
 int Solve(double a, double b, double c, double *x1, double *x2);
+
+///
+//! @brief Printing results of solving quadratic equation ax^2 + bx + c = 0 
+//!
+//! @param [in] a value of a-coefficient
+//! @param [in] b value of b-coefficient
+//! @param [in] c value of c-coefficient
+//! @param [in] x1 pointer to the 1-st root
+//! @param [in] x2 pointer to the 2-nd root
+//!
+//! @return TRUE if worked correctly, FALSE if not
+//!
+//! @note In case of infinite number of roots returns INF_ROOTS.
+///
+
+bool PrintRoots(double a, double b, double c, double *root1, double *root2);
+

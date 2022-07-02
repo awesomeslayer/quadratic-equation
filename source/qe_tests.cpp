@@ -1,10 +1,9 @@
-#include <stdio.h>
 #include <assert.h>
 
 #include "qe_functions.h"
 #include "qe_tests.h"
 
-void SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot1, double TrueRoot2, int nTest, int* NumFail)
+int SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot1, double TrueRoot2, int nTest)
 {
     double x1 = 0;
     double x2 = 0;
@@ -19,22 +18,37 @@ void SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoo
                "And roots: x1 = %lf (instead of %lf) , x2 = %lf (instead of %lf)\n",
                nTest, a, b, c, x1, TrueRoot1, x2, TrueRoot2);
 
-        *NumFail = *NumFail + 1;
+        return 1;
     }
+    
+    return 0;
 }
 
 int TestSolve()
 {
+    FILE * fp;
+
+    if((fp = fopen("tests", "r")) == NULL)
+    {
+        printf("Cannot open file.\n");
+        return FALSE;
+    }
+    
     int NumFail = 0;
+    
+    double a = 0;
+    double b = 0;
+    double c = 0;
+    int TrueNumRoots = 0;
+    double TrueRoot1 = 0;
+    double TrueRoot2 = 0; 
+    int nTest = 0;
 
-    SoloTestRoot(0, 0, 0, INF_ROOTS, FALSE, FALSE, 1, &NumFail);
-    SoloTestRoot(1, 2, 3, 0, FALSE, FALSE, 2, &NumFail);
-    SoloTestRoot(1, 2, -3, 2, 1, -3, 3, &NumFail);
-    SoloTestRoot(0, 2, 1, 1, -0.5, -0.5, 4, &NumFail);
-    SoloTestRoot(1, 2, 1, 1, -1, -1, 5, &NumFail);
+    while(fscanf(fp, "%lf, %lf, %lf, %d, %lf, %lf, %d", &a, &b, &c, &TrueNumRoots, &TrueRoot1, &TrueRoot2, &nTest) == 7)
+        NumFail = NumFail + SoloTestRoot(a, b, c, TrueNumRoots, TrueRoot1, TrueRoot2, nTest);
 
+    fclose(fp);
     return NumFail;
-    //из файла
 }
 
 void TestAll() {
