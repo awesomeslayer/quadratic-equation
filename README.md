@@ -1,6 +1,6 @@
 # Quadratic equation
 
-#### Description
+### Description
 Main goal of this project is solving all types of quadratic equations. Many people have difficulties solving quadratic equations. This project will help them.
 
 ### The form of equation
