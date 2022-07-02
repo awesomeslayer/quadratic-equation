@@ -1,5 +1,4 @@
-VPATH=./source:./tests
-QE: qe_functions.h qe_functions.cpp qe_main.cpp qe_tests.h qe_tests.cpp
+QE: ./source/qe_functions.h ./source/qe_functions.cpp ./source/qe_main.cpp ./tests/qe_tests.h ./tests/qe_tests.cpp
 	g++ -o $@ $^
 
 %.o:%.c

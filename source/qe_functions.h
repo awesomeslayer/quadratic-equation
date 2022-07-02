@@ -36,7 +36,6 @@ double abs_minimum(double a, double b, double c);
 //!
 //! @return nothing
 ///
-
 void swap(double* a, double* b);
 
 ///
@@ -49,7 +48,6 @@ void swap(double* a, double* b);
 //!
 //! @return nothing
 ///
-
 void SortRoots(double *TRoot1, double *TRoot2, double *x1, double *x2);
 
 ///
@@ -60,7 +58,6 @@ void SortRoots(double *TRoot1, double *TRoot2, double *x1, double *x2);
 //!
 //! @return In case of equality of values returns TRUE, otherwise return FALSE
 ///
-
 bool equal(double val1, double val2);
 
 ///
@@ -76,7 +73,6 @@ bool equal(double val1, double val2);
 //! @note Pointers to the 1-st and 2-nd roots are similar in this situation.
 //!      In case of infinite number of roots returns INF_ROOTS.
 ///
-
 int SolveLine(double b, double c, double *x1, double *x2);
 
 ///
@@ -90,7 +86,6 @@ int SolveLine(double b, double c, double *x1, double *x2);
 //!
 //! @return Number of roots
 ///
-
 int SolveQuad(double a, double b, double c, double *x1, double *x2);
 
 ///
@@ -106,7 +101,6 @@ int SolveQuad(double a, double b, double c, double *x1, double *x2);
 //!
 //! @note In case of infinite number of roots returns INF_ROOTS.
 ///
-
 int Solve(double a, double b, double c, double *x1, double *x2);
 
 ///
@@ -122,6 +116,5 @@ int Solve(double a, double b, double c, double *x1, double *x2);
 //!
 //! @note In case of infinite number of roots returns INF_ROOTS.
 ///
-
 bool PrintRoots(double a, double b, double c, double *root1, double *root2);
 
