@@ -47,7 +47,7 @@ void SortRoots(double *TRoot1, double *TRoot2, double *x1, double *x2)
 }
 
 bool equal(double val1, double val2)
-{
+{    
     assert (isfinite (val1));
     assert (isfinite (val2));
 
@@ -58,8 +58,8 @@ int SolveLine(double b, double c, double *x1, double *x2)
 {
     assert(isfinite (b));
     assert(isfinite (c));
-    assert(x1 != NULL);
-    assert(x2 != NULL);
+    assert(x1 != nullptr);
+    assert(x2 != nullptr);
     assert(x1 != x2);
 
     if (equal(b, 0) && equal(c, 0))
@@ -83,13 +83,15 @@ int SolveQuad(double a, double b, double c, double *x1, double *x2)
     assert(x2 != NULL);
     assert(x1 != x2);
 
-    double min_coefficient = minimum(a, b, c);
-    a = a/min_coefficient;
-    b = b/min_coefficient;
-    c = c/min_coefficient;
+    if(a > 0 && b > 0 && c > 0)
+    {
+        double min_coefficient = minimum(a, b, c);
+        a = a/min_coefficient;
+        b = b/min_coefficient;
+        c = c/min_coefficient;
+    }
 
     double D = b * b - 4 * a * c;
-
     if (equal(D, 0))
     {
         *x1 = *x2 = -b / (2 * a);
@@ -113,12 +115,12 @@ int Solve(double a, double b, double c, double *x1, double *x2)
     assert (isfinite (b));
     assert (isfinite (c));
 
-    assert(x1 != NULL);
-    assert(x2 != NULL);
+    assert(x1 != nullptr);
+    assert(x2 != nullptr);
     assert(x1 != x2);
-
+    
     if (equal(a, 0))
-    {
+    {        
         return SolveLine(b, c, x1, x2);
     }
     else

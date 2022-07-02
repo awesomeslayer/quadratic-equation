@@ -3,7 +3,7 @@
 #include "qe_functions.h"
 
 #define DEBUG_MODE
-#ifdef DEBUG_MODE
+#ifdef  DEBUG_MODE
 
     #include "../tests/qe_tests.h"
 
@@ -21,11 +21,12 @@ int main()
     double c_coeff = NAN;
     int ans = 0;
 
-    while (ans != CORRECT_NUM_OF_COEFFS)
+    printf("Please, enter the coefficients of the quadratic equation\n");
+    while(scanf("%lf %lf %lf", &a_coeff, &b_coeff, &c_coeff) != CORRECT_NUM_OF_COEFFS)
     {
         printf("Please, enter the coefficients of the quadratic equation\n");
-        ans = scanf("%lf %lf %lf", &a_coeff, &b_coeff, &c_coeff);
-        fflush(stdin);
+        scanf("%*[^\r^\n]"); //fflush doesnt work?
+        fflush(stdout);
     }
 
     double root1 = NAN;
