@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <stdlib.h>
 
 #include "../source/qe_functions.h"
 #include "qe_tests.h"
@@ -26,12 +27,12 @@ int SoloTestRoot(double a, double b, double c, int TrueNumRoots, double TrueRoot
 
 int TestSolve()
 {
-    FILE * fp = NULL;
+    FILE * in_file = fopen("tests", "r");
 
-    if((fp = fopen("tests.txt", "r")) == NULL)
+    if(in_file == NULL)
     {
         printf("Cannot open file.\n");
-        return FALSE;
+        return -1;
     }
     
     int NumFail = 0;
@@ -44,10 +45,10 @@ int TestSolve()
     double TrueRoot2 = 0; 
     int nTest = 0;
 
-    while(fscanf(fp, "%lf, %lf, %lf, %d, %lf, %lf, %d", &a, &b, &c, &TrueNumRoots, &TrueRoot1, &TrueRoot2, &nTest) == 7)
+    while(fscanf(in_file, "%lf, %lf, %lf, %d, %lf, %lf, %d", &a, &b, &c, &TrueNumRoots, &TrueRoot1, &TrueRoot2, &nTest) == 7)
         NumFail = NumFail + SoloTestRoot(a, b, c, TrueNumRoots, TrueRoot1, TrueRoot2, nTest);
 
-    fclose(fp);
+    fclose(in_file);
     return NumFail;
 }
 
@@ -58,6 +59,6 @@ void TestAll() {
         printf("Failed Tests: %d \n", NumFailedTests);
         assert(NumFailedTests == 0);
     } else {
-        printf("All Tests OK\n");
+        printf("All Tests are OK\n\n");
     }
 }
