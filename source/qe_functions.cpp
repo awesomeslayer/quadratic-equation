@@ -42,25 +42,31 @@ void SortRoots(double *TRoot1, double *TRoot2, double *x1, double *x2)
         swap(x1, x2);
     }
 
-    assert(*x1 >= *x2);
-    assert(*TRoot1 >= *TRoot2);
+    #ifdef DEBUG_MODE
+        assert(*x1 >= *x2);
+        assert(*TRoot1 >= *TRoot2);
+    #endif
 }
 
 bool equal(double val1, double val2)
-{    
-    assert (isfinite (val1));
-    assert (isfinite (val2));
+{   
+    #ifdef DEBUG_MODE 
+        assert (isfinite (val1));
+        assert (isfinite (val2));
+    #endif
 
     return (fabs(val1-val2) < EPS);
 }
 
 int SolveLine(double b, double c, double *x1, double *x2)
 {
-    assert(isfinite (b));
-    assert(isfinite (c));
-    assert(x1 != nullptr);
-    assert(x2 != nullptr);
-    assert(x1 != x2);
+    #ifdef DEBUG_MODE
+        assert(isfinite (b));
+        assert(isfinite (c));
+        assert(x1 != nullptr);
+        assert(x2 != nullptr);
+        assert(x1 != x2);
+    #endif
 
     if (equal(b, 0) && equal(c, 0))
     {
@@ -74,14 +80,16 @@ int SolveLine(double b, double c, double *x1, double *x2)
 }
 
 int SolveQuad(double a, double b, double c, double *x1, double *x2)
-{
-    assert(isfinite (a));
-    assert(isfinite (b));
-    assert(isfinite (c));
+{   
+    #ifdef DEBUG_MODE
+        assert(isfinite (a));
+        assert(isfinite (b));
+        assert(isfinite (c));
 
-    assert(x1 != NULL);
-    assert(x2 != NULL);
-    assert(x1 != x2);
+        assert(x1 != NULL);
+        assert(x2 != NULL);
+        assert(x1 != x2);
+    #endif
 
     if(a > 0 && b > 0 && c > 0)
     {
@@ -110,15 +118,17 @@ int SolveQuad(double a, double b, double c, double *x1, double *x2)
 }
 
 int Solve(double a, double b, double c, double *x1, double *x2)
-{
-    assert (isfinite (a));
-    assert (isfinite (b));
-    assert (isfinite (c));
+{   
+    #ifdef DEBUG_MODE
+        assert (isfinite (a));
+        assert (isfinite (b));
+        assert (isfinite (c));
 
-    assert(x1 != nullptr);
-    assert(x2 != nullptr);
-    assert(x1 != x2);
-    
+        assert(x1 != nullptr);
+        assert(x2 != nullptr);
+        assert(x1 != x2);
+    #endif
+        
     if (equal(a, 0))
     {        
         return SolveLine(b, c, x1, x2);
